@@ -1,0 +1,39 @@
+Name:                   php-helloworld
+Namespace:              qypejg-s2i
+CreationTimestamp:      Wed, 07 Sep 2022 21:10:11 -0400
+Labels:                 app=php-helloworld
+                        app.kubernetes.io/component=php-helloworld
+                        app.kubernetes.io/instance=php-helloworld
+Annotations:            deployment.kubernetes.io/revision: 2
+                        image.openshift.io/triggers:
+                          [{"from":{"kind":"ImageStreamTag","name":"php-helloworld:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"php-helloworld\")...
+                        openshift.io/generated-by: OpenShiftNewApp
+Selector:               deployment=php-helloworld
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:       deployment=php-helloworld
+  Annotations:  openshift.io/generated-by: OpenShiftNewApp
+  Containers:
+   php-helloworld:
+    Image:        image-registry.openshift-image-registry.svc:5000/qypejg-s2i/php-helloworld@sha256:3597efae8da1e5fa6419a0ea3e1e6f8169244d12538a70cc3bfce7d8edcc1f06
+    Ports:        8080/TCP, 8443/TCP
+    Host Ports:   0/TCP, 0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   php-helloworld-7cdb97d559 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  92s   deployment-controller  Scaled up replica set php-helloworld-6cb4f5cd4d to 1
+  Normal  ScalingReplicaSet  60s   deployment-controller  Scaled up replica set php-helloworld-7cdb97d559 to 1
+  Normal  ScalingReplicaSet  57s   deployment-controller  Scaled down replica set php-helloworld-6cb4f5cd4d to 0
